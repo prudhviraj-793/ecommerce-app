@@ -1,0 +1,11 @@
+.navBar {
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40% 10px 40%;
+}
+
+.navBar a {
+    text-decoration: none;
+}
