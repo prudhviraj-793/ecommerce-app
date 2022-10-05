@@ -1,6 +1,8 @@
+import './Footer.css'
+
 function Footer() {
     return (
-        <div>
+        <div className="footer">
             <h2>The Generics</h2>
         </div>
     )
