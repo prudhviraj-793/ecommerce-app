@@ -1,4 +1,5 @@
-import { Fragment, useState } from "react"
+import { useState } from "react"
+import ContextProvider from "./Context/ContextProvider"
 import Footer from "./Footer/Footer"
 import Header from "./Header/Header"
 import Cart from "./NavBar/Cart/Cart"
@@ -14,13 +15,13 @@ function App() {
     setShowItems(res)
   }
   return (
-    <Fragment>
+    <ContextProvider>
       {showItems && <Cart />}
       <NavBar isCartClicked={isCartClicked} />
       <Header />
       <Products />
       <Footer />
-    </Fragment>
+    </ContextProvider>
   )
 }
 

@@ -1,13 +1,18 @@
+import { useContext } from "react";
+import Context from "../../Context/Context";
+
 function CartItems(props) {
-  function remveItem(id) {
-    props.removeItem(id);
+  const ctx = useContext(Context);
+  function removeItem(e) {
+    e.preventDefault();
+    ctx.removeFromCart(props.data.id);
   }
   return (
     <div>
       <h3>{props.data.title}</h3>
       <h4>{props.data.price}</h4>
-      <img src={props.data.imageUrl} alt="carted-items" />
-      <button onClick={() => remveItem(props.data.id)}>Remove</button>
+      <img src={props.data.img} alt="carted-items" />
+      <button onClick={removeItem}>Remove</button>
     </div>
   );
 }
