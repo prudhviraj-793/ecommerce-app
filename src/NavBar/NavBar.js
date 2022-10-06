@@ -1,24 +1,34 @@
-import { useContext } from 'react';
-import Context from '../Context/Context';
-import './NavBar.css'
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import Context from "../Context/Context";
+import "./NavBar.css";
 
 function NavBar(props) {
+  const ctx = useContext(Context);
 
-    const ctx = useContext(Context)
+  function showCartItems(e) {
+    e.preventDefault();
+    props.isCartClicked(true);
+  }
 
-    function showCartItems(e) {
-        e.preventDefault();
-        props.isCartClicked(true);
-    }
-    
-    return (
-        <div className="navBar">
-            <a href="#home">Home</a>
-            <a href="#store">Store</a>
-            <a href="#about">About</a>
-            <button onClick={showCartItems}>Cart {ctx.items.length}</button>
-        </div>
-    )
+  return (
+    <div className="navBar">
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/home">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/store">Store</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about">About</NavLink>
+          </li>
+        </ul>
+      </nav>
+      <button onClick={showCartItems}>Cart {ctx.items.length}</button>
+    </div>
+  );
 }
 
-export default NavBar
+export default NavBar;
