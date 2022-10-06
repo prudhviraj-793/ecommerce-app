@@ -6,6 +6,7 @@ import Header from "./Header/Header"
 import Cart from "./NavBar/Cart/Cart"
 import NavBar from "./NavBar/NavBar"
 import About from "./Pages/About"
+import Home from "./Pages/Home"
 import Products from "./Products/Products"
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
       <Footer />
       <Route path='/about' >
         <About />
+      </Route>
+      <Route path='/home' >
+        <Home />
       </Route>
     </ContextProvider>
   )
