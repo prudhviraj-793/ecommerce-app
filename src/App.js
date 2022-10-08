@@ -6,6 +6,7 @@ import Header from "./Header/Header"
 import Cart from "./NavBar/Cart/Cart"
 import NavBar from "./NavBar/NavBar"
 import About from "./Pages/About"
+import ContactUs from "./Pages/ContactUs"
 import Home from "./Pages/Home"
 import Products from "./Products/Products"
 
@@ -23,8 +24,8 @@ function App() {
   }
   return (
     <ContextProvider>
-      {showItems && <Cart isCancelClicked={isCancelClicked}/>}
       <NavBar isCartClicked={isCartClicked} />
+      {showItems && <Cart isCancelClicked={isCancelClicked}/>}
       <Header />
       <Products />
       <Footer />
@@ -33,6 +34,9 @@ function App() {
       </Route>
       <Route path='/home' >
         <Home />
+      </Route>
+      <Route path='/contactUs' >
+        <ContactUs />
       </Route>
     </ContextProvider>
   )

@@ -24,6 +24,9 @@ function NavBar(props) {
           <li>
             <NavLink to="/about">About</NavLink>
           </li>
+          <li>
+            <NavLink to="/contactUs">Contact Us</NavLink>
+          </li>
         </ul>
       </nav>
       <button onClick={showCartItems}>Cart {ctx.items.length}</button>
