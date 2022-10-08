@@ -1,6 +1,6 @@
 import Product from "./product"
 
-function Products() {
+function Products(props) {
     const productsArr = [
             {
                 id: 'i1',
@@ -28,11 +28,16 @@ function Products() {
             }
         ]
 
+        function specificProductHandler(item) {
+            props.specificProduct(item)
+        }
+
         return (
             <div>
                 {productsArr.map(product => {
                     return <Product 
                         key={product.id}
+                        specificProduct = {specificProductHandler}
                         id={product.id}
                         title={product.title}
                         price={product.price}
