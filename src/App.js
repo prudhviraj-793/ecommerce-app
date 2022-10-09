@@ -8,6 +8,7 @@ import NavBar from "./NavBar/NavBar"
 import About from "./Pages/About"
 import ContactUs from "./Pages/ContactUs"
 import Home from "./Pages/Home"
+import Login from "./Pages/Login"
 import Products from "./Products/Products"
 import SpecificProduct from "./Products/SpecificProduct"
 
@@ -46,6 +47,9 @@ function App() {
       </Route>
       <Route path='/products/:productId' >
         <SpecificProduct item={item} />
+      </Route>
+      <Route path='/login' >
+        <Login />
       </Route>
     </ContextProvider>
   )

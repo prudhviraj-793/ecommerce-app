@@ -27,7 +27,7 @@ function Product(props) {
         showProduct(item);
       }}
     >
-      <Link to='/products/:productId'>
+      <Link to={`/products/${props.id}`}>
         <div>
           <h3>{props.title}</h3>
         </div>

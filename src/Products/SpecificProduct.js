@@ -1,6 +1,9 @@
+import { useParams } from "react-router-dom"
 import Modal from "../Overlay/Modal"
 
 function SpecificProduct(props) {
+    const parms = useParams()
+    console.log(parms.productId)
     return (
         <Modal>
             <div>
