@@ -13,6 +13,7 @@ function LogIn() {
   function emailHandler(e) {
     emailRef.current = e.target.value;
   }
+  
   function passwordHandler(e) {
     passwordRef.current = e.target.value;
   }

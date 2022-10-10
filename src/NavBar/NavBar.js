@@ -19,7 +19,7 @@ function NavBar(props) {
             <NavLink to="/home">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/store">Store</NavLink>
+            <NavLink to="/products">Products</NavLink>
           </li>
           <li>
             <NavLink to="/about">About</NavLink>
