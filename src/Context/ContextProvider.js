@@ -3,20 +3,23 @@ import Context from "./Context";
 
 function ContextProvider(props) {
 
-  let url =
-    "https://crudcrud.com/api/a52951668eb7450b93105a7276c87163/cartedItems";
-
   const [cartedItems, setCartedItems] = useState([]);
   const initialToken = localStorage.getItem("token");
   const [token, setToken] = useState(initialToken);
+  const [mail, setMail] = useState('')
   const data = {
     token: token,
+    mail: mail,
     items: cartedItems,
     addToCart: addToCart,
     removeFromCart: removeFromCart,
     addToken: addTokenHandler,
     removeToken: removeTokenHandler,
+    addMail: addMailHandler
   };
+
+  let url =
+    `https://crudcrud.com/api/a52951668eb7450b93105a7276c87163/cartedItems${mail}`;
 
   const fetchCartItems = useCallback(async () => {
     const response = await fetch(url);
@@ -68,6 +71,10 @@ function ContextProvider(props) {
   function removeTokenHandler() {
     localStorage.removeItem("token");
     setToken(null);
+  }
+
+  function addMailHandler(userMail) {
+    setMail(userMail)
   }
 
   return <Context.Provider value={data}>{props.children}</Context.Provider>;

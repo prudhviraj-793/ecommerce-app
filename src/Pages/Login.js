@@ -23,6 +23,8 @@ function LogIn() {
         returnSecureToken: true,
       };
 
+      ctx.addMail(enteredEmail)
+
       let url = "";
 
       if (ctx.token) {
