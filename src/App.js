@@ -33,7 +33,6 @@ function App() {
       <NavBar isCartClicked={isCartClicked} />
       {showItems && <Cart isCancelClicked={isCancelClicked} />}
       <Header />
-      <Footer />
       <Route path="/products">
         {ctx.token && <Products specificProduct={specificProductHandler} />}
         {!ctx.token && <Redirect to="/login" />}
@@ -53,6 +52,7 @@ function App() {
       <Route path="/login">
         <Login />
       </Route>
+      <Footer />
     </Fragment>
   );
 }

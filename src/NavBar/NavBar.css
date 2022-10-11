@@ -1,20 +1,12 @@
 .navBar {
-    position: fixed;
     border: 2px solid black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 40% 10px 40%;
+    padding: 0 20% 0 20%;
 }
 
 .navBar ul {
-    position: relative;
     display: flex;
     flex-direction: row;
-}
-
-.navBar li {
-    display: flex;
+    list-style: none;
     justify-content: space-between;
 }
 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Context from "../Context/Context";
 
 function Product(props) {
+  
   const ctx = useContext(Context);
 
   const item = {
@@ -12,7 +13,7 @@ function Product(props) {
     price: props.price,
   };
 
-  function addToCart(e) {
+  async function addToCart(e) {
     e.preventDefault();
     ctx.addToCart(item);
   }

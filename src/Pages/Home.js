@@ -1,8 +1,10 @@
+import NavBar from "../NavBar/NavBar"
 import Modal from "../Overlay/Modal"
 
 function Home() {
     return (
         <Modal>
+            <NavBar />
             <h3>TOURS</h3>
             <ul>
                 <li>

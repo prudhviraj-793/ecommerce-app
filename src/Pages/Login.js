@@ -1,29 +1,25 @@
 import { useContext, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import Context from "../Context/Context";
+import NavBar from "../NavBar/NavBar";
 import Modal from "../Overlay/Modal";
 
 function LogIn() {
+  
   const ctx = useContext(Context);
   const history = useHistory()
 
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  function emailHandler(e) {
-    emailRef.current = e.target.value;
-  }
-  
-  function passwordHandler(e) {
-    passwordRef.current = e.target.value;
-  }
-
   async function submitHandler(e) {
     e.preventDefault();
+    const enteredEmail = emailRef.current.value
+    const enteredPassword = passwordRef.current.value
     try {
       const user = {
-        email: emailRef.current,
-        password: passwordRef.current,
+        email: enteredEmail,
+        password: enteredPassword,
         returnSecureToken: true,
       };
 
@@ -60,11 +56,12 @@ function LogIn() {
 
   return (
     <Modal>
+      <NavBar />
       <form onSubmit={submitHandler}>
         <label>Mail</label>
-        <input type="email" ref={emailRef} onChange={emailHandler} />
+        <input type="email" ref={emailRef} />
         <label>Password</label>
-        <input type="password" ref={passwordRef} onChange={passwordHandler} />
+        <input type="password" ref={passwordRef} />
         <button type="submit">Login</button>
         <button type="submit">Sign up</button>
       </form>

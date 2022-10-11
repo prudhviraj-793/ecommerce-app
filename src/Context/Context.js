@@ -6,7 +6,7 @@ const Context = createContext({
     addToCart: () => {},
     removeFromCart: () => {},
     addToken: () => {},
-    removeToken: () => {}
+    removeToken: () => {},
 })
 
 export default Context

@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import NavBar from "../NavBar/NavBar";
 import Modal from "../Overlay/Modal";
 
 function ContactUs() {
@@ -33,6 +34,7 @@ function ContactUs() {
   }
   return (
     <Modal>
+      <NavBar />
       <form onSubmit={requestToContact}>
         <label>Name</label>
         <input type="text" ref={nameRef} onChange={nameHandler} />

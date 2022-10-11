@@ -30,9 +30,11 @@ function NavBar(props) {
           <li>
             <NavLink to="/login">Login</NavLink>
           </li>
+          <li>
+            <button onClick={showCartItems}>Cart {ctx.items.length}</button>
+          </li>
         </ul>
       </nav>
-      <button onClick={showCartItems}>Cart {ctx.items.length}</button>
     </div>
   );
 }

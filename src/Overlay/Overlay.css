@@ -10,5 +10,10 @@
 .overlay {
     border: 2px solid red;
     position: relative;
-    width: 50%
+    text-align: center;
+}
+
+.overlay ul {
+    list-style: none;
+    justify-content: space-between;
 }
