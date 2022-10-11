@@ -19,7 +19,7 @@ function ContextProvider(props) {
   };
 
   let url =
-    `https://crudcrud.com/api/a52951668eb7450b93105a7276c87163/cartedItems${mail}`;
+    `https://crudcrud.com/api/8bdc0d58be9e4496b2d03bad46f8f9bb/cartedItems${mail}`;
 
   const fetchCartItems = useCallback(async () => {
     const response = await fetch(url);
@@ -74,7 +74,16 @@ function ContextProvider(props) {
   }
 
   function addMailHandler(userMail) {
-    setMail(userMail)
+    let updatedMail = ''
+    for(let char of userMail) {
+      if(char === '@' || char === '.') {
+        continue
+      } else {
+        updatedMail += char
+      }
+    }
+    setMail(updatedMail)
+    console.log(updatedMail)
   }
 
   return <Context.Provider value={data}>{props.children}</Context.Provider>;
