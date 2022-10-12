@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom"
+import NavBar from "../NavBar/NavBar"
 import Modal from "../Overlay/Modal"
 
 function SpecificProduct(props) {
@@ -6,6 +7,7 @@ function SpecificProduct(props) {
     console.log(parms.productId)
     return (
         <Modal>
+            <NavBar />
             <div>
                 <h3>{props.item.title}</h3>
             </div>

@@ -19,12 +19,22 @@ function ContextProvider(props) {
   };
 
   let url =
-    `https://crudcrud.com/api/8bdc0d58be9e4496b2d03bad46f8f9bb/cartedItems${mail}`;
+    `https://crudcrud.com/api/1a48b7a546fb403e907876165b8155b3/cartedItems${mail}`;
 
   const fetchCartItems = useCallback(async () => {
     const response = await fetch(url);
     const data = await response.json();
     setCartedItems([...data])
+  }, [url])
+
+  const removeFromCrud = useCallback(async (id) => {
+    const response = await fetch(`${url}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    console.log(response.ok)
   }, [url])
 
   useEffect(() => {
@@ -57,6 +67,7 @@ function ContextProvider(props) {
   function removeFromCart(id) {
     cartedItems.forEach((item, idx) => {
       if (item.id === id) {
+        removeFromCrud(item._id)
         cartedItems.splice(idx, 1);
         setCartedItems([...cartedItems]);
       }
