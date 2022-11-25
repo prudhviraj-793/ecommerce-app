@@ -8,7 +8,7 @@ function CartItems(props) {
     ctx.removeFromCart(props.data.id);
   }
   return (
-    <div>
+    <div className="container">
       <h3>{props.data.title}</h3>
       <h4>{props.data.price}</h4>
       <img src={props.data.img} alt="carted-items" />

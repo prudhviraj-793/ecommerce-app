@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Context from "../Context/Context";
-import "./NavBar.css";
 
 function NavBar(props) {
   const ctx = useContext(Context);
@@ -11,31 +10,56 @@ function NavBar(props) {
     props.isCartClicked(true);
   }
 
+  function logoutHandler() {
+    ctx.removeToken();
+  }
+
   return (
-    <div className="navBar">
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/home">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/products">Products</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contactUs">Contact Us</NavLink>
-          </li>
-          <li>
-            <NavLink to="/login">Login</NavLink>
-          </li>
-          <li>
-            <button onClick={showCartItems}>Cart {ctx.items.length}</button>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <nav className="navbar navbar-expand-lg bg-dark justify-content-center">
+      <div className="row">
+        <div className="col-10">
+          <ul className="nav">
+            <li className="nav-item col-2">
+              <NavLink className="nav-link" to="/home">
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item col-3">
+              <NavLink className="nav-link" to="/products">
+                Products
+              </NavLink>
+            </li>
+            <li className="nav-item col-2">
+              <NavLink className="nav-link" to="/about">
+                About
+              </NavLink>
+            </li>
+            <li className="nav-item col-3">
+              <NavLink className="nav-link" to="/contactUs">
+                ContactUs
+              </NavLink>
+            </li>
+            <li className="nav-item col-2">
+              <NavLink className="nav-link" onClick={logoutHandler} to="/login">
+                {ctx.token ? "Logout" : "Login"}
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+        {ctx.token && (
+          <div className="col-2">
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#cart"
+              onClick={showCartItems}
+              className="btn mt-1 btn-primary btn-sm"
+            >
+              Cart {ctx.token ? ctx.items.length : 0}
+            </button>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 }
 

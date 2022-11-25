@@ -1,9 +1,7 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import Context from "../Context/Context";
 
 function Product(props) {
-  
   const ctx = useContext(Context);
 
   const item = {
@@ -15,6 +13,7 @@ function Product(props) {
 
   async function addToCart(e) {
     e.preventDefault();
+    console.log("added");
     ctx.addToCart(item);
   }
 
@@ -23,23 +22,29 @@ function Product(props) {
   }
 
   return (
-    <div
-      onClick={() => {
-        showProduct(item);
-      }}
-    >
-      <Link to={`/products/${props.id}`}>
-        <div>
-          <h3>{props.title}</h3>
+    <div className="col-6 mb-2 d-md-flex">
+      <div
+        onClick={() => {
+          showProduct(item);
+        }}
+        className="card p-2"
+      >
+        <img
+          className="card-img-top"
+          style={{ width: "15rem" }}
+          src={props.img}
+          alt="product-images"
+        />
+        <div className="card-body">
+          <div className="card-title">
+            <h3>{props.title}</h3>
+          </div>
+          <p>$ {props.price}</p>
         </div>
-        <div>
-          <img src={props.img} alt="product-images" />
-        </div>
-        <div>
-          <p>{props.price}</p>
-          <button onClick={addToCart}>Add To Cart</button>
-        </div>
-      </Link>
+        <button onClick={addToCart} className="btn btn-primary">
+          Add To Cart
+        </button>
+      </div>
     </div>
   );
 }
